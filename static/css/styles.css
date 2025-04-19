@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+.about-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.about-photo {
+    max-width: 100%;
+    height: 300;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.about-content {
+    font-size: 1.2em;
+    color: green;
+}
+
+
+.h1-home {
+    margin-top: 20px;
+    letter-spacing: 2px;
+    font-size: 2em;
+    color: white;
+    text-shadow: 0 0 10px green, 0 0 10px green, 0 0 20px white, 0 0 30px white;
+    position: relative;
+    animation: drop-down 2s ease-out; 
+}
+
+  @keyframes drop-down {
+    0% {
+      top: -100px; 
+      opacity: 0;
+    }
+    100% {
+      top: 0;
+      opacity: 1;
+    }
+}  
+
+
+#start-now {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7)
+}
+
+
+
+/* Feature Boxes */
+.feature-box {
+    padding: 20px;
+    margin-bottom: 7px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+    background: #ffeaa7;
+}
+
+
+/* flashcards */
+
+.card-body {
+    color: pink;
+}
+
+.flip-card {
+    width: 100%;
+    height: 200px;
+    perspective: 1000px; /* Adds depth */
+    margin-bottom: 20px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.flip-card-front {
+    background: #f8f9fa;
+}
+
+.flip-card-back {
+    background: #007bff;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+
+/*about-img*/
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.img-fluid {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+}
+
+.overlay-text {
+    font-size: 2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.image-container:hover .overlay-text {
+    opacity: 1;
+}
+
+
+/*Cheers*/
+h4{
+    text-align: center;
+    letter-spacing: 17px;
+    font-size: 60px;
+    font-style: bold;
+    text-shadow: 2px 2px 5px gray;
+
+}
+
+
+h4{
+    width: 100%;
+    font-weight: normal;
+    font-size: 20px;
+    position: relative;
+    margin: 40px 0;
+}
+
+h4::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 4s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+    width: 100px;
+}
+50%{
+    width: 200px;
+}
+100%{
+    width: 100px;
+}
+}
+
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+}
+
+.container {
+    text-align: center;
+    color: dark;
+}
+  
+  .animated-title {
+      font-size: 3em;
+      animation: fadeIn 2s ease-in-out infinite alternate;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-style: bold;
+    }
+    
+    .subtitle {
+        margin-top: 10px;
+        font-size: 1.2em;
+        opacity: 0.8;
+    }
+    
+    .animated-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        color: white;
+        background-color: #4e54c8;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+    
+    .animated-button:hover {
+        transform: scale(1.1);
+  }
+  
+  /* Keyframes for animations */
+  @keyframes fadeIn {
+      from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+
+
+

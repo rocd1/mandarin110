@@ -1,0 +1,68 @@
+{% extends "apps/base.html" %}
+
+
+{% block content %}
+<!-- Hero Section changed to nav -->
+<nav class=" text-center text-success d-flex align-items-center justify-content-center pt-3 pb-3 bg-dark">
+    <div>
+        <h1>Learn Easy Mandarin</h1>
+        <p>Experience the joy in learning something new.</p>
+        {% if user.is_authenticated %}
+            <p class="text-success">Hi, {{ user.username }}</p>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+
+            {% if user.is_staff %}
+            <a href="{% url 'admin:index' %}" class="btn btn-warning">Admin</a>
+            {% endif %}
+
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary" style="letter-spacing: 3px;">Get Started</a>
+        {% endif %}
+    </div>
+</nav>
+
+
+<div class="container mt-5">
+    <hr>
+    <div style="text-align: left;">
+        <h2>Chapters:</h2>
+        <div class="list-group">
+            {% for chapter in chapters %}
+            <a href="{% url 'chapter_detail' chapter.id %}" class="list-group-item list-group-item-action text-success">
+                {{ chapter.title }}
+                <small class="d-block text-muted">{{ chapter.lessons.count }} lessons</small>
+            </a>
+            {% empty %}
+            <p>No chapters found.</p>
+            {% endfor %}
+        </div>
+  </div>
+</div>
+
+
+<div class="home" id="home">
+    <div class="container mt-5">
+        <div class="text-muted text-center">
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="h1-home">Free to learn and have some fun..</h1><br>
+                    <p>This is a simple project I made after learning django restframework. My name is Roc and I am interested with everything web related. 
+                        The goal is to create an app that will help me learn a new language. I would like to learn to speak mandarin and be able to read it.
+                        This site is free for everyone to learn mandarin. Thank you!
+                    </p>
+                    
+                    <a href="#" class="text-gray"><i class="fab fa-facebook-f fa-3x "></i></a>&nbsp;
+                    <a href="https://github.com/onepagewebapp" class="text-gray"><i class="fab fa-github fa-3x mr-5 ml-5"></i></a>&nbsp;&nbsp;
+                    <a href="https://www.instagram.com/raket.ph_roc/profilecard/?igsh=eXlja2d0Z3ZlMzky" class="text-gray">
+                        <i class="fab fa-instagram fa-3x mr-5"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+
+{% endblock %}
+
